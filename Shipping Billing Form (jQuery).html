@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head><title>Shipping Information</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+	$(document).ready(function(){
+		$("#copyBtn").on("click", function(){
+			var userInfo = {
+				Name: $("#shipName").val(),
+				Address: $("#shipAddress").val(),
+				City: $("#shipCity").val(),
+				State: $("#shipState").val(),
+				Zip: $("#shipZipCode").val()
+			}
+
+			$("#billName").val(userInfo.Name);
+			$("#billAddress").val(userInfo.Address);
+			$("#billCity").val(userInfo.City);
+			$("#billState").val(userInfo.State);
+			$("#billZipCode").val(userInfo.Zip);
+		});
+
+		$("#clearBtn1").on("click", function(){
+			$("#shippingForm")[0].reset();
+		});
+
+		$("#clearBtn2").on("click", function(){
+			$("#billingForm")[0].reset();
+		});
+
+		$("#submitBtn").on("click", function(event){
+			event.preventDefault();
+			console.log("Clicked!");
+		});
+	});
+
+</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h3>Shipping Information</h3>
+<form id="shippingForm" class="navbar-form navbar- form-horizontal">
+	<label for="shipName" class="control-label">Name:</label>
+		<div>
+			<input id="shipName" class="form-control" type="text" name="Name">
+		</div>
+	<label for="shipAddress" class="control-label">Address:</label>
+		<div>
+			<input id="shipAddress" class="form-control" type="text" name="Address">
+		</div>
+	<label for="shipCity" class="control-label">City:</label>
+	<div>
+			<input id="shipCity" class="form-control" type="text" name="City">
+		</div>
+	<label for="shipState">State:</label>
+		<div>
+			<input id="shipState" class="form-control" type="text" name="State">
+		</div>
+	<label for="shipZipCode">Zip Code:</label>
+		<div>
+			<input id="shipZipCode" class="form-control" type="text" name="Zipcode">
+		</div><br/>
+	<button id="copyBtn" type="button" class="btn btn-primary" name="copier">Copy to Billing Address</button><br/><br/>
+	<button id="clearBtn1" class="btn btn-danger" type="button" name="resetter">Clear All</button>
+</form>
+</div>
+
+<div class="col-md-6">
+<h3>Billing Information</h3>
+<form id="billingForm" class="navbar-form navbar- form-horizontal">
+	<label for="billName">Name:</label>
+		<div>
+			<input id="billName" class="form-control" type="text" name="Name">
+		</div>
+	<label for="billAddress">Address:</label>
+		<div>
+			<input id="billAddress" class="form-control" type="text" name="Address">
+		</div>
+	<label for="billCity">City:</label>
+		<div>
+			<input id="billCity" class="form-control" type="text" name="City">
+		</div>
+	<label for="billState">State:</label>
+		<div>
+			<input id="billState" class="form-control" type="text" name="State">
+		</div>
+	<label for="billZipCode">Zip Code:</label>
+		<div>
+			<input id="billZipCode" class="form-control" type="text" name="Zipcode">
+		</div><br/>
+	<button id="clearBtn2" class="btn btn-danger"type="button" name="resetter">Clear All</button><br/><br/>
+	<button id="submitBtn" class="btn btn-success" type="submit" name="submitter">Submit</button>
+</form>
+</div>
+</div>
+</div>
+
+</body>
+</html>
